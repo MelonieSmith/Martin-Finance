@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="main.css">
+<head>
+
+</head>
+<body class="wrapper">
+  <h1 class="title" style="text-align: center;" >University Choice: 15 - 29 Years of Age</h1>
+  <img src="IMG/autoshop.jpg" alt="Automobile shop">
+  <div class="start">
+    <h2>You have found your first job at an automobile shop, Cars R’us. The job pays $15 an hour and also pays a $80 commission for each car you fix. For every shift, you work for 5 hours and average 3 fixed cars per shift.</h2>
+  </div>
+  <div id="university_Stage2">
+    <div id="quest1" class="container" >
+      <h3>Let Vn be the value of the total pay per shift, n be the amount of shifts you work. Write down a recurrence relation that models the amount you earn after n shifts. (format the recurrence relation like this: V0 = $0  Vn+1 = Vn + $x)</h3>
+      <input type="text" id="u_Q1">
+    </div>
+    <div id="quest2" class="container" >
+      <h3>If you only work 3 shifts a week, how much would you have earned in 3 weeks? </h3>
+      <input type="text" id="u_Q2">
+    </div>
+    <div id="quest3" class="container" >
+      <h3>Find how many weeks it would take to earn past $10,000? </h3>
+      <input type="text" id="u_Q3">
+    </div>
+    <div class="start">
+      <h2>Suddenly your family member requires a medical visit. After examination, it has been decided that she will need to be hospitalized which totals a cost $12,000. The private hospital requires you to pay of the fee within 8 weeks.</h2>
+    </div>
+    <div id="quest4" class="container" >
+      <h3>The number of hours and shifts you work stay the same. How many cars will you have to repair per week to be able to pay of this hospitalization fee (to the nearest car)? </h3>
+      <input type="text" id="u_Q4">
+    </div>
+    <div id="congrat" class="hide">
+    <img class="image" src="party.png" alt="party popper">
+    <h1 class="congrats">Congratulations! You have successfully answered all the questions!</h1>
+    <img class="image" src="party.png" alt="party popper">
+    </div>
+    <a href="Uni3.html"><div id="finishUni1" class="hide finish_button">
+      <h1>To the next age group!</h1>
+    </div></a>
+  </div>
+  <audio id="ding_sound" src="correct.mp3"></audio>
+  <audio id="yay_sound" src="clapping.mp3"></audio>
+</body>
+
+<script>
+function u_stage2(event) {
+    if (u_Q1.value == "V0 = $0 Vn+1 = Vn + $315"  && u_Q2.value == "$2835" && (u_Q3.value == "11" || u_Q3.value == "11 weeks") && (u_Q4.value == "16 cars" || u_Q4.value == "16")) {
+        finishUni1.classList.remove('hide');
+        congrat.classList.remove('hide');
+        yay_sound.play();
+      }
+  }
+
+university_Stage2.onchange = u_stage2;
+
+function first() {
+      if (u_Q1.value == "V0 = $0 Vn+1 = Vn + $315") {
+          quest1.classList.remove('wrong');
+          quest1.classList.add('correct');
+          ding_sound.volume=0.1;
+          ding_sound.play();
+        }
+      else{
+        quest1.classList.remove('correct');
+        quest1.classList.add('wrong');
+      }
+    }
+quest1.onchange = first;
+function second() {
+          if (u_Q2.value == "$2835") {
+              quest2.classList.remove('wrong');
+              quest2.classList.add('correct');
+              ding_sound.volume=0.1;
+              ding_sound.play();
+            }
+          else{
+            quest2.classList.remove('correct');
+            quest2.classList.add('wrong');
+          }
+        }
+quest2.onchange = second;
+function third() {
+              if (u_Q3.value == "11" || u_Q3.value == "11 weeks") {
+                  quest3.classList.remove('wrong');
+                  quest3.classList.add('correct');
+                  ding_sound.volume=0.1;
+                  ding_sound.play();
+                }
+              else{
+                quest3.classList.remove('correct');
+                quest3.classList.add('wrong');
+              }
+            }
+
+quest3.onchange = third;
+function fourth() {
+          if (u_Q4.value == "16 cars" || u_Q4.value == "16") {
+              quest4.classList.remove('wrong');
+              quest4.classList.add('correct');
+            }
+          else{
+            quest4.classList.remove('correct');
+            quest4.classList.add('wrong');
+          }
+        }
+quest4.onchange = fourth;
+</script>

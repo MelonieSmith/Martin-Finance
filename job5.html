@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="main.css">
+<head>
+
+</head>
+<body class="wrapper">
+  <h1 class="title" style="text-align: center;" >Job Choice: 60 - 74 Years of Age</h1>
+  <img src="IMG/jhouse.jpg" alt="modern japanese house">
+  <div class="start">
+    <h2>You want to buy a property for yourself and your wife in Japan which costs $150,000 Aud. You don’t have enough money to buy the property now, so you negotiate with your bank, which you have been very loyal to for most of your life, to allow an interest-only loan. The annual interest rate of the negotiated interest-only loan concluded to be 7.15% compounding monthly. </h2>
+
+  </div>
+  <div id="job_Stage1">
+    <div id="quest1" class="container" >
+      <h3>What would be the monthly payment of the interest-only loan? To the nearest cent. </h3>
+      <input type="text" id="j_Q1">
+    </div>
+    <div id="quest2" class="container" >
+      <h3>4 years later, you and your wife now have enough to fully pay off the loan. Find the total amount of interest you have paid over the 4 years. </h3>
+      <input type="text" id="j_Q2">
+    </div>
+    <div class="start">
+      <h2>On average, the value of houses in Japan rises 2.4% per annum. You and your wife have owned the property for a total of 15 years now. </h2>
+    </div>
+    <div id="quest3" class="container" >
+      <h3>Including the bought price of the property and the total amount of interest paid, using the financial solver to aid you, determine what the total profit would be if you sold the property right now? (To the nearest cent). </h3>
+      <input type="text" id="j_Q3">
+    </div>
+    <div id="congrat" class="hide">
+    <img class="image" src="party.png" alt="party popper">
+    <h1 class="congratss">Alert! You have successfully answered all the questions but...</h1>
+    <img class="image" src="party.png" alt="party popper">
+    </div>
+    <a href="fine.html"><div id="finishJob1" class="hide last_finish_button">
+      <h1>Where does this button take you?</h1>
+    </div></a>
+  </div>
+  <audio id="ding_sound" src="correct.mp3"></audio>
+  <audio id="yay_sound" src="NANI!.mp3"></audio>
+</body>
+
+<script>
+function j_stage1(event) {
+    if (j_Q1.value == "$893.75" && j_Q2.value == "$42900" && j_Q3.value == "$21187.15" ) {
+        finishJob1.classList.remove('hide');
+        congrat.classList.remove('hide');
+        yay_sound.play();
+      }
+  }
+
+job_Stage1.onchange = j_stage1;
+
+function first() {
+      if (j_Q1.value == "$893.75") {
+          quest1.classList.remove('wrong');
+          quest1.classList.add('correct');
+          ding_sound.volume=0.1;
+          ding_sound.play();
+        }
+      else{
+        quest1.classList.remove('correct');
+        quest1.classList.add('wrong');
+      }
+    }
+quest1.onchange = first;
+function second() {
+          if (j_Q2.value == "$42900") {
+              quest2.classList.remove('wrong');
+              quest2.classList.add('correct');
+              ding_sound.volume=0.1;
+              ding_sound.play();
+            }
+          else{
+            quest2.classList.remove('correct');
+            quest2.classList.add('wrong');
+          }
+        }
+quest2.onchange = second;
+function third() {
+              if (j_Q3.value == "$21187.15") {
+                  quest3.classList.remove('wrong');
+                  quest3.classList.add('correct');
+                }
+              else{
+                quest3.classList.remove('correct');
+                quest3.classList.add('wrong');
+              }
+            }
+quest3.onchange = third;
+</script>

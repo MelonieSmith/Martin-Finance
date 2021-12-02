@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="main.css">
+<head>
+
+</head>
+<body class="wrapper">
+  <h1 class="title" style="text-align: center;" >University Choice: 15 - 29 Years of Age</h1>
+  <img src="IMG/uni.jpg" alt="Picture of university">
+  <div class="start">
+    <h2>You are studying a mechanical engineering course in university. The course you are doing cost $30,000. You then take out a HELP loan which charges an interest rate of 5.4% compounding yearly.</h2>
+    <br><h2>V<sub>0</sub> = $30,000, V<sub>n+1</sub> = 1.054V<sub>n</sub></h2>
+  </div>
+  <div id="university_Stage1">
+    <div id="quest1" class="container" >
+      <h3>What is the principle of the recurrence relation shown above? </h3>
+      <input type="text" id="u_Q1">
+    </div>
+    <div id="quest2" class="container" >
+      <h3>Recursively find what the value of the loan will be after 3 years (To the nearest cent)? </h3>
+      <input type="text" id="u_Q2">
+    </div>
+    <div id="quest3" class="container" >
+      <h3>How much interest would have built up after 5 years of the loan (to the nearest cent, press enter when done)? </h3>
+      <input type="text" id="u_Q3">
+    </div>
+    <div id="congrat" class="hide">
+    <img class="image" src="party.png" alt="party popper">
+    <h1 class="congrats">Congratulations! You have successfully answered all the questions!</h1>
+    <img class="image" src="party.png" alt="party popper">
+    </div>
+    <a href="Uni2.html"><div id="finishUni1" class="hide finish_button">
+      <h1>To the next age group!</h1>
+    </div></a>
+  </div>
+  <audio id="ding_sound" src="correct.mp3"></audio>
+  <audio id="yay_sound" src="clapping.mp3"></audio>
+</body>
+
+<script>
+function u_stage1(event) {
+    if (u_Q1.value == "$30000"  && u_Q2.value == "$35127.16" && u_Q3.value == "$9023.33") {
+        finishUni1.classList.remove('hide');
+        congrat.classList.remove('hide');
+        yay_sound.play();
+      }
+  }
+university_Stage1.onchange = u_stage1
+
+function first() {
+      if (u_Q1.value == "$30000") {
+          quest1.classList.remove('wrong');
+          quest1.classList.add('correct');
+          ding_sound.volume=0.1;
+          ding_sound.play();
+        }
+      else{
+        quest1.classList.remove('correct');
+        quest1.classList.add('wrong');
+      }
+    }
+quest1.onchange = first;
+function second() {
+          if (u_Q2.value == "$35127.16") {
+              quest2.classList.remove('wrong');
+              quest2.classList.add('correct');
+              ding_sound.volume=0.1;
+              ding_sound.play();
+            }
+          else{
+            quest2.classList.remove('correct');
+            quest2.classList.add('wrong');
+          }
+        }
+quest2.onchange = second;
+function third() {
+              if (u_Q3.value == "$9023.33") {
+                  quest3.classList.remove('wrong');
+                  quest3.classList.add('correct');
+                }
+              else{
+                quest3.classList.remove('correct');
+                quest3.classList.add('wrong');
+              }
+            }
+
+quest3.onchange = third;
+</script>

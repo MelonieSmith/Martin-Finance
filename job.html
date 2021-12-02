@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="main.css">
+<head>
+
+</head>
+<body class="wrapper">
+  <h1 class="title" style="text-align: center;" >Job Choice: 15 - 29 Years of Age</h1>
+  <img src="IMG/chef.jpg" alt="chef cooking">
+  <div class="start">
+    <h2>You are a person who loves to eat and cook food, so you decide to look for a job at a restaurant. You become the head chef at Martin’s Restaurant which pays you $1200 every week. But with every week you also have to pay $200 rent and $300 worth of living expenses. </h2>
+
+  </div>
+  <div id="job_Stage1">
+    <div id="quest1" class="container" >
+      <h3>Write down a recurrence relation that models the total amount you have left over after paying off all the other expenses. Where Vn is the total amount after n weeks. (format the recurrence relation like this: V0 = $0 Vn+1 = Vn + $x)</h3>
+      <input type="text" id="j_Q1">
+    </div>
+    <div id="quest2" class="container" >
+      <h3>What would be the amount saved after 2 years using the formula Vn = $700n where Vn is the total amount after n weeks. </h3>
+      <input type="text" id="j_Q2">
+    </div>
+    <div id="quest3" class="container" >
+      <h3>You want to save up for a new car which costs $25,000. Using a recurrence relation model, calculate the number of weeks it would take to save up this amount. </h3>
+      <input type="text" id="j_Q3">
+    </div>
+    <div id="congrat" class="hide">
+    <img class="image" src="party.png" alt="party popper">
+    <h1 class="congrats">Congratulations! You have successfully answered all the questions!</h1>
+    <img class="image" src="party.png" alt="party popper">
+    </div>
+    <a href="job2.html"><div id="finishJob1" class="hide finish_button">
+      <h1>To the next age group!</h1>
+    </div></a>
+  </div>
+  <audio id="ding_sound" src="correct.mp3"></audio>
+  <audio id="yay_sound" src="clapping.mp3"></audio>
+</body>
+
+<script>
+function j_stage1(event) {
+    if (j_Q1.value == "V0 = $0 Vn+1 = Vn + $700"  && j_Q2.value == "$72800" && (j_Q3.value == "36 weeks" || j_Q3.value == "36")) {
+        finishJob1.classList.remove('hide');
+        congrat.classList.remove('hide');
+        yay_sound.play();
+      }
+  }
+
+job_Stage1.onchange = j_stage1;
+
+function first() {
+      if (j_Q1.value == "V0 = $0 Vn+1 = Vn + $700") {
+          quest1.classList.remove('wrong');
+          quest1.classList.add('correct');
+          ding_sound.volume=0.1;
+          ding_sound.play();
+        }
+      else{
+        quest1.classList.remove('correct');
+        quest1.classList.add('wrong');
+      }
+    }
+quest1.onchange = first;
+function second() {
+          if (j_Q2.value == "$72800") {
+              quest2.classList.remove('wrong');
+              quest2.classList.add('correct');
+              ding_sound.volume=0.1;
+              ding_sound.play();
+            }
+          else{
+            quest2.classList.remove('correct');
+            quest2.classList.add('wrong');
+          }
+        }
+quest2.onchange = second;
+function third() {
+              if (j_Q3.value == "36 weeks" || j_Q3.value == "36") {
+                  quest3.classList.remove('wrong');
+                  quest3.classList.add('correct');
+                }
+              else{
+                quest3.classList.remove('correct');
+                quest3.classList.add('wrong');
+              }
+            }
+
+quest3.onchange = third;
+
+</script>

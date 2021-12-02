@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="main.css">
+<head>
+
+</head>
+<body class="wrapper">
+  <h1 class="title" style="text-align: center;" >Job Choice: 30 - 44 Years of Age</h1>
+  <img src="IMG/wife.jpg" alt="you and your partner holding hands">
+  <div class="start">
+    <h2>You have found a lovely partner. Both of you decide to invest some money into a bank account. The amount both of you invest is a total of $20,000. The bank pays the account 3% interest per annum compounding monthly. </h2>
+
+  </div>
+  <div id="job_Stage1">
+    <div id="quest1" class="container" >
+      <h3>Using the finance calculator, determine the balance of the account after 3 years to the nearest cent. </h3>
+      <input type="text" id="j_Q1">
+    </div>
+    <div id="quest2" class="container" >
+      <h3>Find how much interest was earned after the first 2 years( to the nearest cent). </h3>
+      <input type="text" id="j_Q2">
+    </div>
+    <div class="start">
+      <h2>You and your partner are about to welcome new-born twins to this world. You both want to make a future account for them so you both decide to add $200 to your account every week. You only start depositing the $200 after the balance of your account has reached $22,000. </h2>
+    </div>
+    <div id="quest3" class="container" >
+      <h3>Using an amortisation table, given that the interest rate of 3% pa is now compounding weekly, find the value of the account after 5 months (to the nearest cent). </h3>
+      <input type="text" id="j_Q3">
+    </div>
+    <div id="quest4" class="container" >
+      <h3>How much interest was earned in month 3? (to the nearest cent). </h3>
+      <input type="text" id="j_Q4">
+    </div>
+    <div id="congrat" class="hide">
+    <img class="image" src="party.png" alt="party popper">
+    <h1 class="congrats">Congratulations! You have successfully answered all the questions!</h1>
+    <img class="image" src="party.png" alt="party popper">
+    </div>
+    <a href="job4.html"><div id="finishJob1" class="hide finish_button">
+      <h1>To the next age group!</h1>
+    </div></a>
+  </div>
+  <audio id="ding_sound" src="correct.mp3"></audio>
+  <audio id="yay_sound" src="clapping.mp3"></audio>
+</body>
+
+<script>
+function j_stage1(event) {
+    if (j_Q1.value == "$21881.03" && j_Q2.value == "$1235.14" && j_Q3.value == "$26296.43" && j_Q4.value == "$59.28") {
+        finishJob1.classList.remove('hide');
+        congrat.classList.remove('hide');
+        yay_sound.play();
+      }
+  }
+
+job_Stage1.onchange = j_stage1;
+
+function first() {
+      if (j_Q1.value == "$21881.03") {
+          quest1.classList.remove('wrong');
+          quest1.classList.add('correct');
+          ding_sound.volume=0.1;
+          ding_sound.play();
+        }
+      else{
+        quest1.classList.remove('correct');
+        quest1.classList.add('wrong');
+      }
+    }
+quest1.onchange = first;
+function second() {
+          if (j_Q2.value == "$1235.14") {
+              quest2.classList.remove('wrong');
+              quest2.classList.add('correct');
+              ding_sound.volume=0.1;
+              ding_sound.play();
+            }
+          else{
+            quest2.classList.remove('correct');
+            quest2.classList.add('wrong');
+          }
+        }
+quest2.onchange = second;
+function third() {
+              if (j_Q3.value == "$26635.91") {
+                  quest3.classList.remove('wrong');
+                  quest3.classList.add('correct');
+                  ding_sound.volume=0.1;
+                  ding_sound.play();
+                }
+              else{
+                quest3.classList.remove('correct');
+                quest3.classList.add('wrong');
+              }
+            }
+
+quest3.onchange = third;
+function fourth() {
+          if (j_Q4.value == "$60.51") {
+              quest4.classList.remove('wrong');
+              quest4.classList.add('correct');
+            }
+          else{
+            quest4.classList.remove('correct');
+            quest4.classList.add('wrong');
+          }
+        }
+quest4.onchange = fourth;
+</script>

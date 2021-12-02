@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="main.css">
+<head>
+
+</head>
+<body class="wrapper">
+  <h1 class="title" style="text-align: center;" >Job Choice: 15 - 29 Years of Age</h1>
+  <img src="IMG/car.jpg" alt="car">
+  <div class="start">
+    <h2>Congratulations! You have bought the car that you have saved so hard for. But just like every car, its value depreciates very quickly. The depreciation rate of your car is 12.5% per annum compounding monthly. The recurrence relation below models the depreciation of the car after n months. </h2>
+<br><h2>V<sub>0</sub> = $25,000, V<sub>n+1</sub> = 0. 9896V<sub>n</sub></h2>
+  </div>
+  <div id="job_Stage1">
+    <div id="quest1" class="container" >
+      <h3>Use the recurrence relation to find the value of the car after months 1, 2, 3 <br>(to the nearest cent, answer in the format of: $1, $2, $3). </h3>
+      <input type="text" id="j_Q1">
+    </div>
+    <div id="quest2" class="container" >
+      <h3>Calculate the value of the car after 5 years to the nearest cent. </h3>
+      <input type="text" id="j_Q2">
+    </div>
+    <div id="quest3" class="container" >
+      <h3>You want to sell the car before its value depreciates under $10,000. Recursively determine how many months it would take and what the value of the car is after it has depreciated under $10,000. (answer in the format of: x months, $x ) </h3>
+      <input type="text" id="j_Q3">
+    </div>
+    <div id="congrat" class="hide">
+    <img class="image" src="party.png" alt="party popper">
+    <h1 class="congrats">Congratulations! You have successfully answered all the questions!</h1>
+    <img class="image" src="party.png" alt="party popper">
+    </div>
+    <a href="job3.html"><div id="finishJob1" class="hide finish_button">
+      <h1>To the next age group!</h1>
+    </div></a>
+  </div>
+  <audio id="ding_sound" src="correct.mp3"></audio>
+  <audio id="yay_sound" src="clapping.mp3"></audio>
+</body>
+
+<script>
+function j_stage1(event) {
+    if ((j_Q1.value == "$24740.00, $24482.70, $24228.08" || j_Q1.value == "$24740, $24482.70, $24228.08") && j_Q2.value == "$13351.22" && j_Q3.value == "88 months, $9963.05" ) {
+        finishJob1.classList.remove('hide');
+        congrat.classList.remove('hide');
+        yay_sound.play();
+      }
+  }
+
+job_Stage1.onchange = j_stage1;
+
+function first() {
+      if (j_Q1.value == "$24740.00, $24482.70, $24228.08" || j_Q1.value == "$24740, $24482.70, $24228.08") {
+          quest1.classList.remove('wrong');
+          quest1.classList.add('correct');
+          ding_sound.volume=0.1;
+          ding_sound.play();
+        }
+      else{
+        quest1.classList.remove('correct');
+        quest1.classList.add('wrong');
+      }
+    }
+quest1.onchange = first;
+function second() {
+          if (j_Q2.value == "$13351.23") {
+              quest2.classList.remove('wrong');
+              quest2.classList.add('correct');
+              ding_sound.volume=0.1;
+              ding_sound.play();
+            }
+          else{
+            quest2.classList.remove('correct');
+            quest2.classList.add('wrong');
+          }
+        }
+quest2.onchange = second;
+function third() {
+              if (j_Q3.value == "88 months, $9963.05") {
+                  quest3.classList.remove('wrong');
+                  quest3.classList.add('correct');
+                }
+              else{
+                quest3.classList.remove('correct');
+                quest3.classList.add('wrong');
+              }
+            }
+
+quest3.onchange = third;
+
+</script>

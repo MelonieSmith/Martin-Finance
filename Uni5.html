@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="main.css">
+<head>
+
+</head>
+<body class="wrapper">
+  <h1 class="title" style="text-align: center;" >University Choice: 60 - 74 Years of Age</h1>
+  <img src="IMG/bank2.jpg" alt="a picture of a bank">
+  <div class="start">
+    <h2>Your final years have come, and you still have a very large amount of money in your bank account. Like the great and kind father you are, you decide to invest a large proportion of your wealth to a family account which will be accessible by your children only after your death. You put in $350,000 with monthly additions of $500. The bank gives the account 3.25% interest per annum compounding monthly. </h2>
+
+  </div>
+  <div id="university_Stage1">
+    <div id="quest1" class="container" >
+      <h3>Model this investment in a recurrence relation where Vn  is the value of the account after n months. Round the R value to 5 significant figures. <br>(format the reccurrence relation like this: V0 = $x Vn+1 = xVn + $x)</h3>
+      <input type="text" id="u_Q1">
+    </div>
+    <div id="quest2" class="container" >
+      <h3>Using the financial calculator, determine the balance of the account after 5 years, to the nearest cent. </h3>
+      <input type="text" id="u_Q2">
+    </div>
+    <div class="start">
+      <h2>After the 5 years, your favorite grandchild is about to start school. You want to support him by paying off his yearly school fees because you want him to succeed like you did in your younger years. Over the 12 years of schooling, each year is averaged out to be a cost of $4455. You want to prioritize his education, so you take out half of the balance (question above to the nearest cent) in the family account to invest into a perpetuity. (Round half of the balance to the nearest cent). </h2>
+    </div>
+    <div id="quest3" class="container" >
+      <h3>Using the financial solver, what is the minimum annual interest rate required for the perpetuity to be able to pay off the school fee yearly (to 4 significant figures)? </h3>
+      <input type="text" id="u_Q3">
+    </div>
+    <div id="congrat" class="hide">
+    <img class="image" src="party.png" alt="party popper">
+    <h1 class="congratss">Alert! You have successfully answered all the questions but...</h1>
+    <img class="image" src="party.png" alt="party popper">
+    </div>
+    <a href="fine.html"><div id="finishUni1" class="hide last_finish_button">
+      <h1>Where does this button take you?</h1>
+    </div></a>
+  </div>
+  <audio id="ding_sound" src="correct.mp3"></audio>
+  <audio id="yay_sound" src="NANI!.mp3"></audio>
+</body>
+
+<script>
+function u_stage1(event) {
+    if (u_Q1.value == "V0 = $350000 Vn+1 = 1.0027Vn + $500"  && u_Q2.value == "$444193.85" && (u_Q3.value == "2.006%" || u_Q3.value == "2.006")) {
+        finishUni1.classList.remove('hide');
+        congrat.classList.remove('hide');
+        yay_sound.play();
+      }
+  }
+
+university_Stage1.onchange = u_stage1;
+
+function first() {
+      if (u_Q1.value == "V0 = $350000 Vn+1 = 1.0027Vn + $500") {
+          quest1.classList.remove('wrong');
+          quest1.classList.add('correct');
+          ding_sound.volume=0.1;
+          ding_sound.play();
+        }
+      else{
+        quest1.classList.remove('correct');
+        quest1.classList.add('wrong');
+      }
+    }
+quest1.onchange = first;
+function second() {
+          if (u_Q2.value == "$444193.85") {
+              quest2.classList.remove('wrong');
+              quest2.classList.add('correct');
+              ding_sound.volume=0.1;
+              ding_sound.play();
+            }
+          else{
+            quest2.classList.remove('correct');
+            quest2.classList.add('wrong');
+          }
+        }
+quest2.onchange = second;
+function third() {
+              if (u_Q3.value == "2.006%" || u_Q3.value == "2.006") {
+                  quest3.classList.remove('wrong');
+                  quest3.classList.add('correct');
+                }
+              else{
+                quest3.classList.remove('correct');
+                quest3.classList.add('wrong');
+              }
+            }
+
+quest3.onchange = third;
+
+</script>

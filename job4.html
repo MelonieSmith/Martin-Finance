@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="main.css">
+<head>
+
+</head>
+<body class="wrapper">
+  <h1 class="title" style="text-align: center;" >Job Choice: 45 - 59 Years of Age</h1>
+  <img src="IMG/lunch.jpg" alt="cafeteria">
+  <div class="start">
+    <h2>Fast forward 5 years and your children are now to soon start school. You want to set up a perpetuity so that every week $50 can be used as their lunch money. </h2>
+
+  </div>
+  <div id="job_Stage1">
+    <div id="quest1" class="container" >
+      <h3>How much money would the perpetuity provide yearly? </h3>
+      <input type="text" id="j_Q1">
+    </div>
+    <div id="quest2" class="container" >
+      <h3>If the interest on the perpetuity is 4% per annum compounding weekly, how much needs to be invested so that $50 can be used by the children every week? </h3>
+      <input type="text" id="j_Q2">
+    </div>
+    <div id="quest3" class="container" >
+      <h3>If you only have $55,000 to invest, what would be the minimum interest rate per annum required for this perpetuity to be able to produce $50 a week? <br>(Use the financial solver, rate to 3 significant figures) </h3>
+      <input type="text" id="j_Q3">
+    </div>
+    <div id="congrat" class="hide">
+    <img class="image" src="party.png" alt="party popper">
+    <h1 class="congrats">Congratulations! You have successfully answered all the questions!</h1>
+    <img class="image" src="party.png" alt="party popper">
+    </div>
+    <a href="job5.html"><div id="finishJob1" class="hide finish_button">
+      <h1>To the next age group!</h1>
+    </div></a>
+  </div>
+  <audio id="ding_sound" src="correct.mp3"></audio>
+  <audio id="yay_sound" src="clapping.mp3"></audio>
+</body>
+
+<script>
+function j_stage1(event) {
+    if (j_Q1.value == "$2600" && j_Q2.value == "$65000" && (j_Q3.value == "4.73%" || j_Q3.value == "4.73")) {
+        finishJob1.classList.remove('hide');
+        congrat.classList.remove('hide');
+        yay_sound.play();
+      }
+  }
+
+job_Stage1.onchange = j_stage1;
+
+function first() {
+      if (j_Q1.value == "$2600") {
+          quest1.classList.remove('wrong');
+          quest1.classList.add('correct');
+          ding_sound.volume=0.1;
+          ding_sound.play();
+        }
+      else{
+        quest1.classList.remove('correct');
+        quest1.classList.add('wrong');
+      }
+    }
+quest1.onchange = first;
+function second() {
+          if (j_Q2.value == "$65000") {
+              quest2.classList.remove('wrong');
+              quest2.classList.add('correct');
+              ding_sound.volume=0.1;
+              ding_sound.play();
+            }
+          else{
+            quest2.classList.remove('correct');
+            quest2.classList.add('wrong');
+          }
+        }
+quest2.onchange = second;
+function third() {
+              if (j_Q3.value == "4.73%" || j_Q3.value == "4.73") {
+                  quest3.classList.remove('wrong');
+                  quest3.classList.add('correct');
+                }
+              else{
+                quest3.classList.remove('correct');
+                quest3.classList.add('wrong');
+              }
+            }
+
+quest3.onchange = third;
+
+</script>
